@@ -1,0 +1,57 @@
+{
+    "plus": [
+      {
+        "text": "Fortement en désaccord",
+        "score": 1,
+        "color": 1
+      },
+      {
+        "text": "En désaccord",
+        "score": 2,
+        "color": 2
+      },
+      {
+        "text": "Neutre",
+        "score": 3,
+        "color": 3
+      },
+      {
+        "text": "D'accord",
+        "score": 4,
+        "color": 4
+      },
+      {
+        "text": "Tout à fait d'accord",
+        "score": 5,
+        "color": 5
+      }
+    ],
+    "minus": [
+      {
+        "text": "Fortement en désaccord",
+        "score": 5,
+        "color": 1
+      },
+      {
+        "text": "En désaccord",
+        "score": 4,
+        "color": 2
+      },
+      {
+        "text": "Neutre",
+        "score": 3,
+        "color": 3
+      },
+      {
+        "text": "D'accord",
+        "score": 2,
+        "color": 4
+      },
+      {
+        "text": "Tout à fait d'accord",
+        "score": 1,
+        "color": 5
+      }
+    ]
+  }
+  
