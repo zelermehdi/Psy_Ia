@@ -8,8 +8,12 @@ use Illuminate\Http\Request;
 class ChatController extends Controller
 {
     public function chat(Request $request)
-    {     
+    {
         $userMessage = $request->input('message');
+        $chatHistory = session('chatHistory', []);
+    
+        // Ajouter le message de l'utilisateur à l'historique
+        $chatHistory[] = ['user' => $userMessage];
     
         if (session()->has('bigFiveScores') && session()->has('bigFiveAnalysis')) {
             $scores = session('bigFiveScores');
@@ -25,8 +29,15 @@ class ChatController extends Controller
             $response = $this->askOpenAI($userMessage);
         }
     
-        return back()->with('reply', $response);
+        // Ajouter la réponse à l'historique
+        $chatHistory[] = ['bot' => $response];
+    
+        // Sauvegarder l'historique dans la session
+        session(['chatHistory' => $chatHistory]);
+    
+        return back();
     }
+    
 
     public function results(Request $request)
     {
@@ -41,7 +52,7 @@ class ChatController extends Controller
         ];
     
         $questions = json_decode(file_get_contents(public_path() . "/questionnaire.json"), true);
-    
+
         foreach ($responses as $questionId => $responseScore) {
             foreach ($questions as $question) {
                 if ($question['id'] === $questionId) {
@@ -84,6 +95,7 @@ class ChatController extends Controller
         if (session()->has('bigFiveScores') && session()->has('bigFiveAnalysis')) {
             $scores = session('bigFiveScores');
             $analysis = session('bigFiveAnalysis');
+   
             
             return $analysis; 
         } else {

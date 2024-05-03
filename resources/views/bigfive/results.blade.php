@@ -29,6 +29,7 @@
     <div class="my-8">
         <h2 class="text-2xl font-semibold mb-4">Analyse Détaillée</h2>
         <p>{{ $analysis }}</p>
+       
     </div>
 
     <div class="flex justify-between">
