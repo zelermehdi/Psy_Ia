@@ -69,7 +69,7 @@ class ChatController extends Controller
             $scores[$domain] = ($score / $maxScorePerDomain) * 100;
         }
     
-        $message = "Based on the Big Five personality test scores: Neuroticism: {$scores['N']}%, Extraversion: {$scores['E']}%, Openness: {$scores['O']}%, Agreeableness: {$scores['A']}%, Conscientiousness: {$scores['C']}%. Could you analyze these results and provide a detailed summary?";
+        $message = " Neuroticism: {$scores['N']}%, Extraversion: {$scores['E']}%, Openness: {$scores['O']}%, Agreeableness: {$scores['A']}%, Conscientiousness: {$scores['C']}%. Could you analyze these results and provide a detailed summary?";
     
         $response = $this->askOpenAI($message);
         $analysis = $response;
