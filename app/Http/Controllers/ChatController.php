@@ -102,7 +102,7 @@ class ChatController extends Controller
             return "Il semble que nous n'ayons pas vos résultats. Veuillez effectuer le test pour obtenir une analyse.";
         }
     }
-    //commentrai
+    //commentr
 
 
     
